@@ -49,22 +49,21 @@ public class AutorDAO {
             ResultSet rs = stat.executeQuery(sql);
 
             /* Criando ArrayList para armazenar 
-             objetos do tipo produto */
+             objetos do tipo autor */
             ArrayList<Autor> autores = new ArrayList<>();
 
             /* Enquanto houver uma próxima linha no 
              banco de dados o while roda */
             while (rs.next()) {
-                //Criando um novo obj. ProdutoVO
+                //Criando um novo obj. 
                 Autor autor = new Autor();
 
-                /* Mapeando a tabela do banco para objeto
-                 chamado pVO */
+                /* Mapeando a tabela do banco para objeto */
                 autor.setCodigo(rs.getInt("codigo"));
                 autor.setNome(rs.getString("nome"));
 
 
-                /* Inserindo o objeto pVO no ArrayList */
+                /* Inserindo o objeto  no ArrayList */
                 autores.add(autor);
 
             }//Fecha while

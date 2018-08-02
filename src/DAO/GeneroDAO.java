@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import Entidade.Genero;
-import DAO.ConectaBanco;
 import java.sql.PreparedStatement;
 
 public class GeneroDAO {
@@ -50,22 +49,21 @@ public class GeneroDAO {
             ResultSet rs = stat.executeQuery(sql);
 
             /* Criando ArrayList para armazenar 
-             objetos do tipo produto */
+             objetos do tipo genero */
             ArrayList<Genero> generos = new ArrayList<>();
 
             /* Enquanto houver uma próxima linha no 
              banco de dados o while roda */
             while (rs.next()) {
-                //Criando um novo obj. ProdutoVO
+                //Criando um novo obj.
                 Genero genero = new Genero();
 
-                /* Mapeando a tabela do banco para objeto
-                 chamado pVO */
+                /* Mapeando a tabela do banco para objeto */
                 genero.setCodigo(rs.getInt("codigo"));
                 genero.setTipo(rs.getString("tipo"));
 
 
-                /* Inserindo o objeto pVO no ArrayList */
+                /* Inserindo o objeto no ArrayList */
                 generos.add(genero);
 
             }//Fecha while
