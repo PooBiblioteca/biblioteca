@@ -2,12 +2,23 @@ package Entidade;
 
 public class Exemplar {
 
+    private Integer codigo;
     private Livro livro;
     private Short edicao;
     private Integer tombo;
     private Boolean disponivel;
     private Integer numExemplar;
 
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    
+    
     public Livro getLivro() {
         return livro;
     }

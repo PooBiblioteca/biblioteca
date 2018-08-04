@@ -3,6 +3,8 @@ package Entidade;
 import java.util.Date;
 
 public class Emprestimo {
+    
+    private Integer codigo;
     private Date dataretirada;
     private Date dataDevolucao;
     private Boolean dano; //passivel de remocao
@@ -10,6 +12,14 @@ public class Emprestimo {
     private Funcionario funcionario;
     private Exemplar exemplar;
     private Usuario usuario;
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
     
     public Date getDataretirada() {

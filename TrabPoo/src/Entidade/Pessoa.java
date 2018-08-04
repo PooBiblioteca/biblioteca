@@ -1,11 +1,21 @@
 package Entidade;
 
 public abstract class Pessoa {
+    
+    private Integer codigo;
     private String nome;
     private Long cpf;
     private String endereco;
     private String email;
     private Integer telefone;
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;
