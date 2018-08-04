@@ -10,9 +10,9 @@ import java.sql.PreparedStatement;
 
 public class AutorDAO {
 
-    public void Salvar(Autor autor) {
+    public void Salvar(Autor autor) throws SQLException{
         String sql = "INSERT INTO autor(codigo,nome) VALUES(?,?)";
-        try {
+       
             Connection con = ConectaBanco.getConexao();
             /*Criando obj. capaz de executar instruções
          SQL no banco de dados*/
@@ -22,9 +22,7 @@ public class AutorDAO {
 
             stat.execute();
             stat.close();
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
+       
 
     }
     
