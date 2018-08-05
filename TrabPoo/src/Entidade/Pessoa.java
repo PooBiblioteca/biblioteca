@@ -4,10 +4,10 @@ public abstract class Pessoa {
     
     private Integer codigo;
     private String nome;
-    private Long cpf;
+    private String cpf;
     private String endereco;
     private String email;
-    private Integer telefone;
+    private String telefone;
 
     public Integer getCodigo() {
         return codigo;
@@ -25,11 +25,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -49,11 +49,11 @@ public abstract class Pessoa {
         this.email = email;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }

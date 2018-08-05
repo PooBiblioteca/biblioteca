@@ -1,11 +1,39 @@
 package Entidade;
 
+import DAO.FuncionarioDAO;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Teste {
 
-    public static void main(String[] args) {
-        ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+    public static void main(String[] args) throws ParseException {
+
+        Funcionario f = new Funcionario();
+
+       SimpleDateFormat   formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+            String dataini = ("12/12/2010");
+            Date dataf = formato.parse(dataini);
+            
+         //f.setCodigo(1);
+        f.setNome("Mtas");
+        f.setCpf("120.489.956-83");
+        f.setEndereco("afdadfads");
+        f.setEmail("matsagui");
+        f.setTelefone("(38) 3744-1721");
+        f.setSenhaacesso("matheus");
+        f.setCodigoContrato(12);
+        java.sql.Date Data = new java.sql.Date(dataf.getTime());
+        f.setFimContrato(Data);
+
+        FuncionarioDAO func = new FuncionarioDAO();
+        func.Salvar(f);
+    }
+}
+
+/* ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
         Exemplar zero =  new Exemplar();
         zero.setNumExemplar(0);
         zero.setDisponivel(false);
@@ -24,6 +52,4 @@ public class Teste {
         livro1.setExemplares(exemplares);
         System.out.println(livro1.obterDisponivel());
         
-    }
-    
-}
+    }*/
