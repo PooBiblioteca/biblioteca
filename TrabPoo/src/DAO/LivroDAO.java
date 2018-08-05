@@ -1,4 +1,4 @@
-package DAO;
+/*package DAO;
 
 import Entidade.Genero;
 import java.sql.Connection;
@@ -16,7 +16,7 @@ public class LivroDAO {
         try {
             Connection con = ConectaBanco.getConexao();
             /*Criando obj. capaz de executar instruções
-         SQL no banco de dados*/
+         SQL no banco de dados
             PreparedStatement stat = con.prepareStatement(sql);
 
             stat.setInt(1, livro.getCodigo());
@@ -36,3 +36,4 @@ public class LivroDAO {
         }
 
     }
+*/
