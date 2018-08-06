@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
             if(func.CheckLogin(txtEmail.getText(),Criptografar.encriptografar(txtSenha.getText()))){
                 
                 JOptionPane.showMessageDialog(null,"Senha Correta"); 
-              // new Menu().setVisible(true);
+                 new Menu().setVisible(true);
                this.dispose();
             }else{
                 
