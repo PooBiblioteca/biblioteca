@@ -102,7 +102,7 @@ public class FuncionarioDAO {
                 Funcionario funcionario = new Funcionario();
 
                 /* Mapeando a tabela do banco para objeto */
-                 funcionario.setCodigo(rs.getInt("codigo"));
+                funcionario.setCodigo(rs.getInt("codigo"));
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setCpf(rs.getString("cpf"));
                 funcionario.setEndereco(rs.getString("endereco"));
@@ -194,6 +194,24 @@ public class FuncionarioDAO {
         // O stmt executa o comando SQL no BD, e fecha a conexão
         stat.execute();
         stat.close();
+    }
+
+    public void remove(int id) throws SQLException {       
+        // Prepara conexão p/ receber o comando SQL
+        String sql = "DELETE FROM funcionario WHERE codigo=?";
+        // stmt recebe o comando SQL
+        Connection con = ConectaBanco.getConexao();
+        /*Criando obj. capaz de executar instruções
+         SQL no banco de dados*/
+        PreparedStatement stat = con.prepareStatement(sql);
+        
+        // Seta o valor do ID p/ a condição de verificação SQL, dentro do stmt
+        stat.setInt(1, id);
+        
+        // Executa o codigo SQL, e fecha
+        stat.execute();
+        stat.close();
+        
     }
 
 }
