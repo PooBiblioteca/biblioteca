@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Entidade.Funcionario;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 public class FuncionarioDAO {
 
@@ -20,7 +21,7 @@ public class FuncionarioDAO {
          SQL no banco de dados*/
             PreparedStatement stat = con.prepareStatement(sql);
 
-           // stat.setInt(1, funcionario.getCodigo());
+            // stat.setInt(1, funcionario.getCodigo());
             stat.setString(1, funcionario.getNome());
             stat.setString(2, funcionario.getCpf());
             stat.setString(3, funcionario.getEndereco());
@@ -101,15 +102,15 @@ public class FuncionarioDAO {
                 Funcionario funcionario = new Funcionario();
 
                 /* Mapeando a tabela do banco para objeto */
-               // funcionario.setCodigo(rs.getInt("codigo"));
+                 funcionario.setCodigo(rs.getInt("codigo"));
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setCpf(rs.getString("cpf"));
                 funcionario.setEndereco(rs.getString("endereco"));
                 funcionario.setEmail(rs.getString("email"));
                 funcionario.setTelefone(rs.getString("telefone"));
-                funcionario.setSenhaacesso(rs.getString("senha"));
-                funcionario.setCodigoContrato(rs.getInt("codigocontrato"));
-                funcionario.setFimContrato(rs.getDate("fimcontrato"));
+                //funcionario.setSenhaacesso(rs.getString("senha"));
+                funcionario.setCodigoContrato(rs.getInt("contrato"));
+                funcionario.setFimContrato(rs.getDate("fim_contrato"));
 
 
                 /* Inserindo o objeto  no ArrayList */
@@ -125,6 +126,74 @@ public class FuncionarioDAO {
         } finally {
 
         }//fecha finally
+    }
+
+    public List<Funcionario> BuscarPorNome(String nome) throws SQLException {
+        // Prepara conexão p/ receber o comando SQL
+        String sql = "SELECT * FROM funcionario WHERE nome like ?";
+
+        Connection con = ConectaBanco.getConexao();
+        /*Criando obj. capaz de executar instruções
+         SQL no banco de dados*/
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, nome);
+
+        // Recebe o resultado da consulta SQL
+        ResultSet rs = stat.executeQuery();
+
+        List<Funcionario> lista = new ArrayList<>();
+
+        // Enquanto existir registros, pega os valores do ReultSet e vai adicionando na lista
+        while (rs.next()) {
+            //  A cada loop, é instanciado um novo objeto, p/ servir de ponte no envio de registros p/ a lista
+            Funcionario func = new Funcionario();
+
+            // "c" -> Cliente novo - .setNome recebe o campo do banco de String "nome" 
+            func.setCodigo(Integer.valueOf(rs.getString("codigo")));
+            func.setNome(rs.getString("nome"));
+            func.setCpf(rs.getString("cpf"));
+            func.setEndereco(rs.getString("endereco"));
+            func.setEmail(rs.getString("email"));
+            func.setTelefone(rs.getString("telefone"));
+            func.setCodigoContrato(rs.getInt("contrato"));
+            func.setFimContrato(rs.getDate("fim_contrato"));
+
+            // Adiciona o registro na lista
+            lista.add(func);
+        }
+
+        // Fecha a conexão com o BD
+        rs.close();
+        stat.close();
+
+        // Retorna a lista de registros, gerados pela consulta
+        return lista;
+    }
+
+    // UPDATE - Atualiza registros
+    public void Alterar(Funcionario f) throws SQLException {
+        // Prepara conexão p/ receber o comando SQL
+        String sql = "UPDATE funcionario set nome=?, cpf=?, endereco=?, email=?, telefone=?, contrato=?, fim_contrato=?"
+                + "WHERE codigo=?";
+        // stmt recebe o comando SQL
+        Connection con = ConectaBanco.getConexao();
+        /*Criando obj. capaz de executar instruções
+         SQL no banco de dados*/
+        PreparedStatement stat = con.prepareStatement(sql);
+
+        // Seta os valores p/ o stmt, substituindo os "?"
+        stat.setInt(8, f.getCodigo());
+        stat.setString(1, f.getNome());
+        stat.setString(2, f.getCpf());
+        stat.setString(3, f.getEndereco());
+        stat.setString(4, f.getEmail());
+        stat.setString(5, f.getTelefone());
+        stat.setInt(6, f.getCodigoContrato());
+        stat.setDate(7, (Date) f.getFimContrato());
+
+        // O stmt executa o comando SQL no BD, e fecha a conexão
+        stat.execute();
+        stat.close();
     }
 
 }
