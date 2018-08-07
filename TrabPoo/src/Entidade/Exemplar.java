@@ -58,5 +58,12 @@ public class Exemplar {
     public void setNumExemplar(Integer numExemplar) {
         this.numExemplar = numExemplar;
     }
+    
+    @Override
+    
+    public String toString(){
+    
+        return getLivro().getTitulo();
+    }
 
 }

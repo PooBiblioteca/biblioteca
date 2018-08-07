@@ -4,14 +4,38 @@ import java.util.ArrayList;
 
 public class Livro {
 
+    private Integer codigo;
     private String titulo;
     private Integer ano;
-    private ArrayList<Genero> generos = new ArrayList();
-    private Integer codigo;
-    private ArrayList<Autor> autores = new ArrayList();
+    private String genero;
+    private String autor;
     private Integer volume;
-    private Integer editora;
-    private ArrayList<Exemplar> exemplares = new ArrayList();
+    private String editora;
+    private Exemplar exemplar;
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public Exemplar getExemplar() {
+        return exemplar;
+    }
+
+    public void setExemplar(Exemplar exemplar) {
+        this.exemplar = exemplar;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -40,38 +64,42 @@ public class Livro {
     public Integer getVolume() {
         return volume;
     }
-    
+
     public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
-    public Integer getEditora() {
+    public String getEditora() {
         return editora;
     }
 
-    public void setEditora(Integer editora) {
+    public void setEditora(String editora) {
         this.editora = editora;
     }
-    
-    public Integer obterDisponivel(){
-        for (Exemplar e: getExemplares()){
-            if (e.getDisponivel()){
+
+    /* public Integer obterDisponivel() {
+        for (Exemplar e : getExemplar()) {
+            if (e.getDisponivel()) {
                 return e.getNumExemplar();
             }
         }
         return 0;
     }
-    
-    public ArrayList<Exemplar> getExemplares(){
-        return exemplares;
-    }
 
-    public void setExemplares(ArrayList<Exemplar> exemplares){
+  
+
+    public void setExemplares(ArrayList<Exemplar> exemplares) {
         this.exemplares = exemplares;
-        if (exemplares.isEmpty()){
+        if (exemplares.isEmpty()) {
             System.out.println("Lista vazia");
         }
     }
+     */
+    @Override
+
+    public String toString() {
+
+        return getTitulo();
+    }
 
 }
-

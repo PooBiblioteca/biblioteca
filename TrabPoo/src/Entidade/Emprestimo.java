@@ -5,8 +5,8 @@ import java.util.Date;
 public class Emprestimo {
     
     private Integer codigo;
-    private Date dataretirada;
-    private Date dataDevolucao;
+    private String dataretirada;
+    private String dataDevolucao;
     private Boolean dano; //passivel de remocao
     private String observacao;
     private Funcionario funcionario;
@@ -22,19 +22,19 @@ public class Emprestimo {
     }
 
     
-    public Date getDataretirada() {
+    public String getDataretirada() {
         return dataretirada;
     }
 
-    public void setDataretirada(Date dataretirada) {
+    public void setDataretirada(String dataretirada) {
         this.dataretirada = dataretirada;
     }
 
-    public Date getDataDevolucao() {
+    public String getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(Date dataDevolucao) {
+    public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
