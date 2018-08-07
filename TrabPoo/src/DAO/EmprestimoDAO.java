@@ -20,7 +20,7 @@ public class EmprestimoDAO {
 
     public void Salvar(Emprestimo emprestimo) throws SQLException {
 
-        String sql = "INSERT INTO emprestimo(codigo, id_usuario, id_exemplar, id_funcionario, observacao, data_retirada, data_devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO emprestimo(codigo, id_usuario, id_exemplar, id_funcionario, observacao, data_emprestimo, data_devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         Connection con = ConectaBanco.getConexao();
         /*Criando obj. capaz de executar instruções
@@ -34,8 +34,8 @@ public class EmprestimoDAO {
         stat.setInt(3, emprestimo.getExemplar().getCodigo());
         stat.setInt(4, emprestimo.getFuncionario().getCodigo());
         stat.setString(5, emprestimo.getObservacao());
-        stat.setDate(6, (Date) emprestimo.getDataretirada());
-        stat.setDate(7, (Date) emprestimo.getDataDevolucao());
+        stat.setString(6, emprestimo.getDataretirada());
+        stat.setString(7, emprestimo.getDataDevolucao());
 
         // O stmt executa o comando SQL no BD, e fecha a conexão
         stat.execute();
@@ -64,17 +64,16 @@ public class EmprestimoDAO {
             //  A cada loop, é instanciado um novo objeto, p/ servir de ponte no envio de registros p/ a lista
             Emprestimo emprestimo = new Emprestimo();
 
-     
-            emprestimo.setCodigo(Integer.valueOf(rs.getString("codigo")));            
+            emprestimo.setCodigo(Integer.valueOf(rs.getString("codigo")));
             Usuario usario = new Usuario();
-            usario.setCodigo(rs.getInt("id_usuario"));
+            usario.setCodigo(rs.getInt("codigo_usuario"));
             Exemplar exemplar = new Exemplar();
-            exemplar.setCodigo(rs.getInt("id_exemplar"));
+            exemplar.setCodigo(rs.getInt("codigo_exemplar"));
             Funcionario funcionario = new Funcionario();
-            funcionario.setCodigo(rs.getInt("id_funcionario"));
+            funcionario.setCodigo(rs.getInt("codigo_funcionario"));
             emprestimo.setObservacao(rs.getString("observacao"));
-            emprestimo.setDataretirada(rs.getDate("data_retirada"));
-            emprestimo.setDataDevolucao(rs.getDate("data_devolucao"));
+            emprestimo.setDataretirada(rs.getString("data_retirada"));
+            emprestimo.setDataDevolucao(rs.getString("data_devolucao"));
 
             // Adiciona o registro na lista
             lista.add(emprestimo);
@@ -96,7 +95,6 @@ public class EmprestimoDAO {
         /*Criando obj. capaz de executar instruções
          SQL no banco de dados*/
         PreparedStatement stat = con.prepareStatement(sql);
-       
 
         // Recebe o resultado da consulta SQL
         ResultSet rs = stat.executeQuery();
@@ -109,7 +107,7 @@ public class EmprestimoDAO {
             Emprestimo emprestimo = new Emprestimo();
 
             // "c" -> Registro novo - .setNome recebe o campo do banco de String "nome" 
-            emprestimo.setCodigo(Integer.valueOf(rs.getString("codigo")));            
+            emprestimo.setCodigo(Integer.valueOf(rs.getString("codigo")));
             Usuario usario = new Usuario();
             usario.setCodigo(rs.getInt("id_usuario"));
             Exemplar exemplar = new Exemplar();
@@ -117,8 +115,8 @@ public class EmprestimoDAO {
             Funcionario funcionario = new Funcionario();
             funcionario.setCodigo(rs.getInt("id_funcionario"));
             emprestimo.setObservacao(rs.getString("observacao"));
-            emprestimo.setDataretirada(rs.getDate("data_retirada"));
-            emprestimo.setDataDevolucao(rs.getDate("data_devolucao"));
+            emprestimo.setDataretirada(rs.getString("data_retirada"));
+            emprestimo.setDataDevolucao(rs.getString("data_devolucao"));
 
             // Adiciona o registro na lista
             lista.add(emprestimo);
@@ -131,6 +129,53 @@ public class EmprestimoDAO {
         // Retorna a lista de registros, gerados pela consulta
         return lista;
 
+    }
+    
+     public List<Emprestimo> BuscarPorFunc(String cod_funcionario) throws SQLException{
+        // Prepara conexão p/ receber o comando SQL
+        String sql = "SELECT emprestimo.codigo_emprestimo, emprestimo.codigo_funcionario, emprestimo.codigo_usuario, emprestimo.codigo_exemplar, emprestimo.observacao, emprestimo.data_emprestimo, emprestimo.data_devolucao" +
+                    " FROM emprestimo" +
+                    " INNER JOIN funcionario" +
+                    " ON emprestimo.codigo_funcionario = funcionario.codigo_funcionario" +
+                    " WHERE emprestimo.codigo_funcionario = ?;";
+        Connection con = ConectaBanco.getConexao();
+        /*Criando obj. capaz de executar instruções
+         SQL no banco de dados*/
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, cod_funcionario);
+        
+        // Recebe o resultado da consulta SQL
+        ResultSet rs = stat.executeQuery();
+        
+        List<Emprestimo> lista = new ArrayList<>();
+        
+        // Enquanto existir registros, pega os valores do ReultSet e vai adicionando na lista
+        while(rs.next()) {
+            //  A cada loop, é instanciado um novo objeto, p/ servir de ponte no envio de registros p/ a lista
+            Emprestimo e = new Emprestimo();
+            
+            // "c" -> Registro novo - .setNome recebe o campo do banco de String "nome" 
+            e.setCodigo(Integer.valueOf(rs.getString("emprestimo.codigo_emprestimo")));
+            Usuario usario = new Usuario();
+            usario.setCodigo(rs.getInt("emprestimo.codigo_usuario"));
+            Exemplar exemplar = new Exemplar();
+            exemplar.setCodigo(rs.getInt("emprestimo.codigo_exemplar"));
+            Funcionario funcionario = new Funcionario();
+            e.setObservacao(rs.getString("emprestimo.observacao"));
+            funcionario.setCodigo(rs.getInt("emprestimo.codigo_funcionario"));
+            e.setDataretirada(rs.getString("emprestimo.data_emprestimo"));
+            e.setDataDevolucao(rs.getString("emprestimo.data_devolucao"));
+            
+            // Adiciona o registro na lista
+            lista.add(e);            
+        }
+        
+        // Fecha a conexão com o BD
+        rs.close();
+        stat.close();
+        
+        // Retorna a lista de registros, gerados pela consulta
+        return lista;          
     }
 
     // DELETE - Apaga registros
