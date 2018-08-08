@@ -1,0 +1,12 @@
+create database biblioteca;
+use biblioteca;
+
+create table funcionario(codigo int auto_increment primary key, nome varchar (30), cpf varchar(50), endereco varchar(100), email varchar(100), telefone varchar(50), senha varchar(1000), contrato int, fim_contrato date);
+
+create table livro(codigo int auto_increment primary key,titulo varchar(100), ano int, genero varchar(100), autor varchar(100), volume int, editora varchar(100));
+
+create table exemplar(codigo int auto_increment primary key, id_livro int, edicao double, tombo int, disponivel boolean, num_exemplar int, foreign key(id_livro) references livro(codigo));
+
+create table usuario(codigo int auto_increment primary key, nome varchar(100), cpf varchar(100), endereco varchar(100), email varchar(100), telefone varchar(50), ativo boolean, codigo_cadastro int);
+
+create table emprestimo(codigo int auto_increment primary key, id_usuario int, id_exemplar int, id_funcionario int, observacao varchar(100), data_emprestimo varchar(50), data_devolucao varchar(50), foreign key(id_usuario) references usuario(codigo), foreign key(id_exemplar) references exemplar(codigo), foreign key(id_funcionario) references funcionario(codigo));
