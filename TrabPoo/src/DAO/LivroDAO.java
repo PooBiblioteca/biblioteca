@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import Entidade.Livro;
 import java.sql.PreparedStatement;
+import java.util.List;
 
 public class LivroDAO {
 
@@ -29,6 +30,50 @@ public class LivroDAO {
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
+    }
+
+    public List<Livro> BuscarPorTitulo(String titulo) throws SQLException {
+        // Prepara conexão p/ receber o comando SQL
+        String sql = "SELECT * FROM livro WHERE upper(titulo) like ?";
+
+        Connection con = ConectaBanco.getConexao();
+        /*Criando obj. capaz de executar instruções
+         SQL no banco de dados*/
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, titulo);
+
+        // Recebe o resultado da consulta SQL
+        ResultSet rs = stat.executeQuery();
+
+        List<Livro> lista = new ArrayList<>();
+
+        // Enquanto existir registros, pega os valores do ReultSet e vai adicionando na lista
+        while (rs.next()) {
+            //  A cada loop, é instanciado um novo objeto, p/ servir de ponte no envio de registros p/ a lista
+            Livro livro = new Livro();
+
+            // "c" -> Cliente novo - .setNome recebe o campo do banco de String "nome" 
+            //funcionario.setSenhaacesso(rs.getString("senha"));
+
+            /* Inserindo o objeto  no ArrayList */
+            livro.setCodigo(rs.getInt("codigo"));
+            livro.setTitulo(rs.getString("titulo"));
+            livro.setAno(rs.getInt("ano"));
+            livro.setGenero(rs.getString("genero"));
+            livro.setAutor(rs.getString("autor"));
+            livro.setVolume(rs.getInt("volume"));
+            livro.setEditora(rs.getString("editora"));
+
+            // Adiciona o registro na lista
+            lista.add(livro);
+        }
+
+        // Fecha a conexão com o BD
+        rs.close();
+        stat.close();
+
+        // Retorna a lista de registros, gerados pela consulta
+        return lista;
     }
 
     public ArrayList<Livro> BuscarLivro() throws SQLException {
@@ -65,10 +110,10 @@ public class LivroDAO {
                 livro.setCodigo(rs.getInt("codigo"));
                 livro.setTitulo(rs.getString("titulo"));
                 livro.setAno(rs.getInt("ano"));
-                //livro.setGenero(rs.getString("endereco"));
+                livro.setGenero(rs.getString("genero"));
+                livro.setAutor(rs.getString("autor"));
                 livro.setVolume(rs.getInt("volume"));
                 livro.setEditora(rs.getString("editora"));
-                //funcionario.setSenhaacesso(rs.getString("senha"));
 
                 /* Inserindo o objeto  no ArrayList */
                 livros.add(livro);
