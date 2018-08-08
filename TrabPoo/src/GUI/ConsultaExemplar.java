@@ -23,27 +23,38 @@ public class ConsultaExemplar extends javax.swing.JFrame {
     /**
      * Creates new form ConsultaEmprestimos
      */
-    public ConsultaExemplar() {
+    public ConsultaExemplar()
+    {
         initComponents();
         preencherTable();
     }
 
-    DefaultTableModel dtm = new DefaultTableModel(new Object[][]{},
-            new Object[]{"Cód.Exemplar", "Edição", "Tombo", "Disponível", "Num.Exemplares", "Título"}) {
-        public boolean isCellEditable(int rowIndex, int mColIndex) {
+    DefaultTableModel dtm = new DefaultTableModel(new Object[][]
+    {
+    },
+            new Object[]
+            {
+                "Cód.Exemplar", "Edição", "Tombo", "Disponível", "Num.Exemplares", "Título"
+            }) {
+        public boolean isCellEditable(int rowIndex, int mColIndex)
+        {
             return false;
         }
 
     };
 
-    private void preencherTable() {
+    private void preencherTable()
+    {
 
-        try {
+        try
+        {
 
             ExemplarDAO exdao = new ExemplarDAO();
 
-            for (Exemplar a : exdao.BuscarExemplar()) {
-                dtm.addRow(new String[]{
+            for (Exemplar a : exdao.BuscarExemplar())
+            {
+                dtm.addRow(new String[]
+                {
                     String.valueOf(a.getCodigo()),
                     String.valueOf(a.getEdicao()),
                     String.valueOf(a.getTombo()),
@@ -57,44 +68,55 @@ public class ConsultaExemplar extends javax.swing.JFrame {
              com os dados na tabela produto */
             jTable.setModel(dtm);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this,
                     "Erro!!! " + e.getMessage());
 
         }
 
     }
-    
-     
-    private void limparTabela() {
-        while (dtm.getRowCount() > 0) {
+
+    private void limparTabela()
+    {
+        while (dtm.getRowCount() > 0)
+        {
             dtm.removeRow(0);
         }
     }
 
-    private void listaExemplar() throws SQLException {
-        List<Exemplar> exemplares;
-        //limpaCampos();
-        ExemplarDAO exdao = new ExemplarDAO();
-        exemplares = exdao.BuscarPorTitulo( "%" + txtPesquisa.getText() + "%");
+    private void listaExemplar() throws SQLException
+    {
+
+//        List<Exemplar> exemplares;
+//        //limpaCampos();
+//        ExemplarDAO exdao = new ExemplarDAO();
+//        exemplares = exdao.BuscarPorTitulo(txtPesquisa.getText());
+        List<Exemplar> exemplares = new ExemplarDAO().BuscarPorTitulo(txtPesquisa.getText());
 
         // Após pesquisar , executa o método p/ exibir o resultado na tabela pesquisa
         PesquisaPorTitulo(exemplares);
-         exemplares.clear();
+        exemplares.clear();
     }
-   
 
-    private void PesquisaPorTitulo(List<Exemplar> exemplares) {
+    private void PesquisaPorTitulo(List<Exemplar> exemplares)
+    {
         // Limpa a tabela sempre que for solicitado uma nova pesquisa
         //limparTabela();
 
-        if (exemplares.isEmpty()) {
+        if (exemplares.isEmpty())
+        {
             JOptionPane.showMessageDialog(rootPane, "Nenhum registro  encontrado.");
-        } else {
+        } else
+        {
             // Linha em branco usada no for, para cada registro é criada uma nova linha 
-            String[] linha = new String[]{null, null, null, null, null};
+            String[] linha = new String[]
+            {
+                null, null, null, null, null
+            };
             // P/ cada registro é criada uma nova linha, cada recebe linha os campos do registro
-            for (int i = 0; i < exemplares.size(); i++) {
+            for (int i = 0; i < exemplares.size(); i++)
+            {
                 dtm.addRow(linha);
                 dtm.setValueAt(exemplares.get(i).getCodigo(), i, 0);
                 dtm.setValueAt(exemplares.get(i).getEdicao(), i, 1);
@@ -209,9 +231,11 @@ public class ConsultaExemplar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        try {
+        try
+        {
             listaExemplar();
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             Logger.getLogger(ConsultaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -220,26 +244,34 @@ public class ConsultaExemplar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(ConsultaExemplar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(ConsultaExemplar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(ConsultaExemplar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(ConsultaExemplar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -247,7 +279,8 @@ public class ConsultaExemplar extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run()
+            {
                 new ConsultaExemplar().setVisible(true);
             }
         });

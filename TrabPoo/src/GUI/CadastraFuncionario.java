@@ -1,30 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package GUI;
+    package GUI;
 
 import DAO.FuncionarioDAO;
 import Entidade.Funcionario;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author mats-
- */
 public class CadastraFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastraFuncionario
      */
-    public CadastraFuncionario() {
+    public CadastraFuncionario()
+    {
         initComponents();
     }
 
@@ -35,7 +29,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,7 +49,7 @@ public class CadastraFuncionario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtFone = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("(##) ####-####");
+            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("(##) # ####-####");
 
             txtFone = new javax.swing.JFormattedTextField(telefone);
         }catch(Exception e){
@@ -67,6 +62,7 @@ public class CadastraFuncionario extends javax.swing.JFrame {
             txtCpf = new javax.swing.JFormattedTextField(cpf);
         }catch(Exception e){
         }
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -87,73 +83,99 @@ public class CadastraFuncionario extends javax.swing.JFrame {
 
         jLabel8.setText("Data Fim Contrato");
 
+        txtEndereco.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                txtEnderecoActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton1ActionPerformed(evt);
             }
         });
 
         jButton2.setText("Voltar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        try {
+        try
+        {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
+        } catch (java.text.ParseException ex)
+        {
             ex.printStackTrace();
         }
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel9.setText("Cadastrar Funcionário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72)
-                                .addComponent(jButton1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2))
-                            .addComponent(txtContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtFone))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel4))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNome)
-                                .addComponent(txtEndereco)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtFone, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(txtSenha)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                                            .addComponent(jButton1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jButton2))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txtContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(139, 139, 139))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel4))
+                                    .addGap(54, 54, 54)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEndereco))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -173,12 +195,12 @@ public class CadastraFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtFone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,10 +213,10 @@ public class CadastraFuncionario extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
 
-        setSize(new java.awt.Dimension(505, 419));
+        setSize(new java.awt.Dimension(535, 440));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,24 +226,34 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+        try
+        {
             Cadastrar();
-        } catch (ParseException ex) {
+        } catch (ParseException ex)
+        {
             Logger.getLogger(CadastraFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private String data() {
-        String d = txtCpf.getText() + "-" + txtCpf.getText() + "-" + txtCpf.getText();
+    private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtEnderecoActionPerformed
+    {//GEN-HEADEREND:event_txtEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnderecoActionPerformed
+
+    private String data()
+    {
+        String d = txtData.getText() + "-" + txtData.getText() + "-" + txtData.getText();
 
         return d;
     }
 
-    private void Cadastrar() throws ParseException {
+    private void Cadastrar() throws ParseException
+    {
 
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        if (verificaDados()) {
+        if (verificaDados())
+        {
 
             Date dataf = formato.parse(txtData.getText());
 
@@ -242,22 +274,130 @@ public class CadastraFuncionario extends javax.swing.JFrame {
             funcdao.Salvar(func);
             JOptionPane.showMessageDialog(rootPane, "Dados cadastrados com sucesso.");
             limpaCampos();
-            txtNome.grabFocus();
-            
-        } 
+
+        }
     }
 
-    private boolean verificaDados() {
-        if ((!txtNome.getText().equals("")) && (!txtCpf.getText().equals(""))
-                && (!txtEndereco.getText().equals("")) && (!txtEmail.getText().equals(""))
-                && (!txtFone.getText().equals("")) && (!txtSenha.getText().equals("")) && (!txtData.getText().equals("")) && (!txtContrato.getText().equals(""))) {
+    private boolean verificaDados()
+    {
+        if ((!txtNome.getText().equals("")) && ((!txtCpf.getText().equals("")) && (verificaCpf(txtCpf.getText()) == true))
+                && (!txtEndereco.getText().equals("")) && ((!txtEmail.getText().equals("")) || verificaEmail(txtEmail.getText()) == true)
+                && ((!txtFone.getText().equals("")) && verificaTelefone(txtFone.getText()) == true) && (!txtSenha.getText().equals("")) && (!txtData.getText().equals("")) && (!txtContrato.getText().equals("")))
+        {
             return true;
         }
         JOptionPane.showMessageDialog(rootPane, "Dados imcompletos.");
         return false;
     }
 
-    private void limpaCampos() {
+    // validação de campos: CPF, Email e Telefone
+    private boolean verificaCpf(String cpf)
+    {
+        // considera-se erro CPF's formados por uma sequencia de numeros iguais
+        if (cpf.equals("00000000000") || cpf.equals("11111111111")
+                || cpf.equals("22222222222") || cpf.equals("33333333333")
+                || cpf.equals("44444444444") || cpf.equals("55555555555")
+                || cpf.equals("66666666666") || cpf.equals("77777777777")
+                || cpf.equals("88888888888") || cpf.equals("99999999999")
+                || (cpf.length() != 11))
+        {
+            txtCpf.setText("");
+            return false;
+        }
+
+        char dig10, dig11;
+        int sm, i, r, num, peso;
+
+        // "try" - protege o codigo para eventuais erros de conversao de tipo (int)
+        try
+        {
+            // Calculo do 1o. Digito Verificador
+            sm = 0;
+            peso = 10;
+            for (i = 0; i < 9; i++)
+            {
+
+                /* converte o i-esimo caractere do cpf em um numero:
+            // por exemplo, transforma o caractere '0' no inteiro 0         
+             (48 eh a posicao de '0' na tabela ASCII)         */
+                num = (int) (cpf.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+            {
+                dig10 = '0';
+            } else
+            {
+                dig10 = (char) (r + 48); // converte no respectivo caractere numerico
+            }
+
+            // Calculo do 2o. Digito Verificador
+            sm = 0;
+            peso = 11;
+            for (i = 0; i < 10; i++)
+            {
+                num = (int) (cpf.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+            {
+                dig11 = '0';
+            } else
+            {
+                dig11 = (char) (r + 48);
+            }
+
+            // Verifica se os digitos calculados conferem com os digitos informados.
+            if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10)))
+            {
+                return (true);
+            } else
+            {
+                txtCpf.setText("");
+                return (false);
+            }
+        } catch (InputMismatchException erro)
+        {
+            txtCpf.setText("");
+            return (false);
+        }
+    }
+
+    private boolean verificaEmail(String email)
+    {
+        boolean validaEmail = false;
+        txtEmail.setText("");
+        if (email != null && email.length() > 0)
+        {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches())
+            {
+                validaEmail = true;
+            }
+        }
+        return validaEmail;
+    }
+
+    private boolean verificaTelefone(String telefone)
+    {
+        String formato
+                = //"(/d/d)/d/d/d/d-/d/d/d/d";
+                "/([0-9]{2}?/)[0-9]{4}?/-[0-9]{4}?";
+        
+        txtFone.setText("");
+        return !((telefone == null) || (telefone.length() != 13) || (!telefone.matches(formato)));
+    }
+
+    private void limpaCampos()
+    {
         txtNome.setText("");
         txtCpf.setText("");
         txtEndereco.setText("");
@@ -269,7 +409,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     }
 
     // Desabilita os campos do formulário
-    private void desabilitaCampos() {
+    private void desabilitaCampos()
+    {
         txtNome.setEditable(false);
         txtCpf.setEditable(false);
         txtEndereco.setEditable(false);
@@ -281,8 +422,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     }
 
     // Habilita os campos do formulário
-    private void habilitaCampos() {
-
+    private void habilitaCampos()
+    {
         txtNome.setEditable(true);
         txtCpf.setEditable(true);
         txtEndereco.setEditable(true);
@@ -296,33 +437,41 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(CadastraFuncionario.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(CadastraFuncionario.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(CadastraFuncionario.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(CadastraFuncionario.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -330,7 +479,8 @@ public class CadastraFuncionario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run()
+            {
                 new CadastraFuncionario().setVisible(true);
             }
         });
@@ -347,6 +497,7 @@ public class CadastraFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtContrato;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JFormattedTextField txtData;

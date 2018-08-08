@@ -34,7 +34,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     /**
      * Creates new form JanelaEmprestimo
      */
-    public JanelaEmprestimo() {
+    public JanelaEmprestimo()
+    {
         initComponents();
         preencherTableFunc();
         preencherTableUser();
@@ -48,7 +49,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         btGrupo = new javax.swing.ButtonGroup();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -90,13 +92,15 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         jTableUsuario1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
@@ -119,25 +123,31 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         rbExemplar.setText("Exemplar");
 
         btnPesquisa.setText("Pesquisar");
-        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnPesquisaActionPerformed(evt);
             }
         });
 
         jTableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
-        jTableFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jTableFuncionario.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jTableFuncionarioMouseClicked(evt);
             }
         });
@@ -147,18 +157,22 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         jLabel2.setText("Selecione o Funcionário");
 
         jTableExemplar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
-        jTableExemplar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jTableExemplar.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jTableExemplarMouseClicked(evt);
             }
         });
@@ -168,18 +182,22 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         jLabel3.setText("Selecione o Usuário");
 
         jTableUsuario2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
-        jTableUsuario2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jTableUsuario2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jTableUsuario2MouseClicked(evt);
             }
         });
@@ -192,13 +210,15 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         jLabel5.setText("Empréstimos");
 
         jTableEmprestimo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
                 {},
                 {},
                 {},
                 {}
             },
-            new String [] {
+            new String []
+            {
 
             }
         ));
@@ -220,15 +240,19 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         jLabel12.setText("Código Exemplar");
 
         jButton1.setText("Emprestar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton1ActionPerformed(evt);
             }
         });
 
         jButton2.setText("Devolver");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton2ActionPerformed(evt);
             }
         });
@@ -288,16 +312,17 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(txtObs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtCodUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtCodEx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
-                        .addComponent(txtCodFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCodFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(txtCodUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12)
+                        .addComponent(txtCodEx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -393,18 +418,22 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-     private void preencherTableFunc() {
+    private void preencherTableFunc()
+    {
 
-        try {
+        try
+        {
 
             FuncionarioDAO funcdao = new FuncionarioDAO();
 
-            for (Funcionario a : funcdao.BuscarFuncionario()) {
-                tmFuncionario.addRow(new String[]{
+            for (Funcionario a : funcdao.BuscarFuncionario())
+            {
+                tmFuncionario.addRow(new String[]
+                {
                     String.valueOf(a.getCodigo()),
                     String.valueOf(a.getNome()),
                     String.valueOf(a.getCpf()),
-                    
+
                 });
             }//fecha for
 
@@ -412,26 +441,31 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
              com os dados na tabela produto */
             jTableFuncionario.setModel(tmFuncionario);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this,
                     "Erro!!! " + e.getMessage());
 
         }
 
     }
-     
-     private void preencherTableUser() {
 
-        try {
+    private void preencherTableUser()
+    {
+
+        try
+        {
 
             UsuarioDAO userdao = new UsuarioDAO();
 
-            for (Usuario a : userdao.BuscarUsuario()) {
-                tmUsuario.addRow(new String[]{
+            for (Usuario a : userdao.BuscarUsuario())
+            {
+                tmUsuario.addRow(new String[]
+                {
                     String.valueOf(a.getCodigo()),
                     String.valueOf(a.getNome()),
                     String.valueOf(a.getAtivo()),
-                    
+
                 });
             }//fecha for
 
@@ -439,23 +473,28 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
              com os dados na tabela produto */
             jTableUsuario2.setModel(tmUsuario);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this,
                     "Erro!!! " + e.getMessage());
 
         }
 
     }
-     
-      private void preencherTableEx() {
 
-        try {
+    private void preencherTableEx()
+    {
+
+        try
+        {
 
             ExemplarDAO exdao = new ExemplarDAO();
 
-            for (Exemplar a : exdao.BuscarExemplar()) {
-                tmExemplar.addRow(new String[]{
-                    String.valueOf(a.getCodigo()),                
+            for (Exemplar a : exdao.BuscarExemplar())
+            {
+                tmExemplar.addRow(new String[]
+                {
+                    String.valueOf(a.getCodigo()),
                     String.valueOf(a.getDisponivel()),
                     String.valueOf(a.getNumExemplar()),
                     String.valueOf(a.getLivro().getTitulo())
@@ -466,38 +505,49 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
              com os dados na tabela produto */
             jTableExemplar.setModel(tmExemplar);
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             JOptionPane.showMessageDialog(this,
                     "Erro!!! " + e.getMessage());
 
         }
 
     }
-    
+
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
 
-        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbExemplar.isSelected())) {
+        if (!(rbFuncionario.isSelected() || rbUsuario.isSelected() || rbExemplar.isSelected()))
+        {
             JOptionPane.showMessageDialog(rootPane, "Selecione um campo de pesquisa.");
-        } else if (rbFuncionario.isSelected()) {
-            // Quando seleciona PESQUISA CLIENTE
-            try {
+        } else if (rbFuncionario.isSelected())
+        {
+            // Quando seleciona PESQUISA Funcionário
+            try
+            {
                 listaFuncionario();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(rootPane, "Erro ao efetuar empréstimo.");
+            } catch (SQLException ex)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao listar Funcionários.");
             }
-        } else if (rbUsuario.isSelected()) {
-            // Quando seleciona PESQUISA LIVROS
-            try {
+        } else if (rbUsuario.isSelected())
+        {
+            // Quando seleciona PESQUISA Usuários
+            try
+            {
                 listaUsuario();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(rootPane, "Problemas ao listar contatos.");
+            } catch (SQLException ex)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Problemas ao listar Usuários.");
             }
-        } else if (rbExemplar.isSelected()) {
-            // Quando seleciona PESQUISA LIVROS
-            try {
+        } else if (rbExemplar.isSelected())
+        {
+            // Quando seleciona PESQUISA Exemplares
+            try
+            {
                 listaExemplares();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(rootPane, "Problemas ao listar contatos.");
+            } catch (SQLException ex)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Problemas ao listar Exemplares.");
             }
         }
 
@@ -520,40 +570,52 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
 
         txtCodEx.setText(jTableExemplar.getValueAt(linhaSelecionada, 0).toString());
 
-        try {
+        try
+        {
             listaContatosEmprestimo();
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             JOptionPane.showMessageDialog(rootPane, "Erro ao listar emprestimos.");
         }
     }//GEN-LAST:event_jTableExemplarMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+        try
+        {
             devolveExemplar();
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             JOptionPane.showMessageDialog(rootPane, "Erro ao devolver livro.");
-        } catch (ParseException ex) {
+        } catch (ParseException ex)
+        {
 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+        try
+        {
             cadastraRegistro();
-        } catch (SQLException ex) {
+        } catch (SQLException ex)
+        {
             Logger.getLogger(JanelaEmprestimo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void cadastraRegistro() throws SQLException {
+    private void cadastraRegistro() throws SQLException
+    {
         // Antes de cadastrar, verifica se o usuário está com algum registro selecionado
-        if (!(jTableEmprestimo.getSelectedRow() != -1)) {
+        if (!(jTableEmprestimo.getSelectedRow() != -1))
+        {
             // Antes de cadastrar, verifica se os campos foram preenchidos
-            if (verificaDados()) {
-                if (verificaDisponibilidade()) {
+            if (verificaDados())
+            {
+                if (verificaDisponibilidade())
+                {
                     EmprestimoDAO d = new EmprestimoDAO();
 
-                    try {
+                    try
+                    {
                         Emprestimo e = new Emprestimo();
 
                         Funcionario f = new Funcionario();
@@ -567,7 +629,7 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
                         e.setExemplar(ex);
                         e.setObservacao(txtObs.getText());
                         e.setDataretirada(salvaDataEmprestimo());
-                        e.setDataretirada(salvaDataDevolucao());
+                        e.setDataDevolucao(salvaDataDevolucao());
 
                         d = new EmprestimoDAO();
 
@@ -581,10 +643,12 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
                         listaContatosEmprestimo();
                         listaExemplares();
 
-                    } catch (SQLException ex) {
+                    } catch (SQLException ex)
+                    {
                         JOptionPane.showMessageDialog(rootPane, "Erro ao efetuar empréstimo.");
                     }
-                } else {
+                } else
+                {
                     JOptionPane.showMessageDialog(rootPane, "ERRO Empréstimo não autorizado.\nUsuário com pendências correspondentes à multa.\n\n"
                             + "Só poderá solicitar um novo empréstimo após sanar as pendências.");
                 }
@@ -592,9 +656,11 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         }
     }
 
-    private boolean verificaDados() {
+    private boolean verificaDados()
+    {
         if ((!txtCodFunc.getText().equals("")) && (!txtCodUser.getText().equals("")) && (!txtCodEx.getText().equals(""))
-                && (!txtObs.getText().equals("")) && (!txtDataEmprestimo.getText().equals(""))) {
+                && (!txtObs.getText().equals("")) && (!txtDataEmprestimo.getText().equals("")))
+        {
             return true;
         }
         JOptionPane.showMessageDialog(rootPane, "Dados imcompletos.");
@@ -602,7 +668,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Pega o campo disponibilidade do livro selecionado
-    public String disponibilidadeExemplar() {
+    public String disponibilidadeExemplar()
+    {
         // Salva a posição da linha selecionada na tabela de pesquisa
         int linhaSelecionada = jTableExemplar.getSelectedRow();
         String status = (String) jTableExemplar.getValueAt(linhaSelecionada, 3);
@@ -610,8 +677,10 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         return status;
     }
 
-    private boolean verificaDisponibilidade() {
-        if (!disponibilidadeExemplar().equals("0")) {
+    private boolean verificaDisponibilidade()
+    {
+        if (!disponibilidadeExemplar().equals("0"))
+        {
             return true;
         }
         JOptionPane.showMessageDialog(rootPane, "Exemplar selecionado está indisponível.");
@@ -622,7 +691,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
 
  /* ----DATAS-> */
     // Exibe a data do empréstimo(data atual) no formulário
-    private void dataEmprestimo() {
+    private void dataEmprestimo()
+    {
         Date data = new Date();
 
         SimpleDateFormat formataData = new SimpleDateFormat("dd/MM/yyyy");
@@ -632,7 +702,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Retorna a data de empréstimo
-    private String salvaDataEmprestimo() {
+    private String salvaDataEmprestimo()
+    {
         Date data = new Date();
 
         SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd");
@@ -642,7 +713,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Exibe a data de devolução no formulário
-    private void mostraDataDevolucao() {
+    private void mostraDataDevolucao()
+    {
         // Recebe a data do sistema
         Date dataDevolucao = new Date();
         // Adiciona + 10 à data atual
@@ -656,7 +728,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Retorna a data de devolução, pronta p/ ser salva no BD
-    public String salvaDataDevolucao() {
+    public String salvaDataDevolucao()
+    {
         // Recebe a data do sistema
         Date dataDevolucao = new Date();
         // Adiciona + 10 à data atual
@@ -670,7 +743,8 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Pega a data de devolução no registro selecionado na tebela de emprestimo
-    public String pegaDataDevolucaoTabela() throws ParseException {
+    public String pegaDataDevolucaoTabela() throws ParseException
+    {
 
         int linhaSelecionada = jTableEmprestimo.getSelectedRow();
         String dataTabela = (jTableEmprestimo.getValueAt(linhaSelecionada, 4)).toString();
@@ -684,13 +758,15 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Calcula a diferença entre a data prevista para devolução e a data atual
-    private long diferencaData() throws ParseException {
+    private long diferencaData() throws ParseException
+    {
         LocalDate atual = LocalDate.now();
         LocalDate dataDevolucao = LocalDate.parse(pegaDataDevolucaoTabela());
 
         long diferenca = 0;
 
-        if (dataDevolucao.compareTo(atual) < 0) {
+        if (dataDevolucao.compareTo(atual) < 0)
+        {
             diferenca = ChronoUnit.DAYS.between(dataDevolucao, atual);
         }
 
@@ -698,14 +774,17 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Configura campos da tabela de pesquisas de acordo com os campos do funcionario
-    DefaultTableModel tmFuncionario = new DefaultTableModel(null, new String[]{"Código", "Nome", "CPF"});
-    // Lista de clientes, recebe os registros retornados da pesquisa
-    List<Funcionario> funcionarios;
+    DefaultTableModel tmFuncionario = new DefaultTableModel(null, new String[]
+    {
+        "Código", "Nome", "CPF"
+    });
+   
+    
 
     // Lista a quantidade de resultado, de acordo com o nome passado no campo pesquisa
-    private void listaFuncionario() throws SQLException {
-        FuncionarioDAO funcdao = new FuncionarioDAO();
-        funcionarios = funcdao.BuscarPorNome("%" + txtPesquisa.getText() + "%");
+    private void listaFuncionario() throws SQLException
+    {
+          List<Funcionario> funcionarios = new FuncionarioDAO().BuscarPorNome(txtPesquisa.getText());
 
         // Após pesquisar os contatos, executa o método p/ exibir o resultado na tabela pesquisa
         mostraPesquisaFuncionario(funcionarios);
@@ -713,17 +792,24 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Mostra a lista de resultado de acordo com o nome passado no campo pesquisa
-    private void mostraPesquisaFuncionario(List<Funcionario> funcionarios) {
+    private void mostraPesquisaFuncionario(List<Funcionario> funcionarios)
+    {
         // Limpa a tabela sempre que for solicitado uma nova pesquisa
         limpaTabelaFuncionario();
 
-        if (funcionarios.isEmpty()) {
+        if (funcionarios.isEmpty())
+        {
             JOptionPane.showMessageDialog(rootPane, "Nenhum registro não encontrado.");
-        } else {
+        } else
+        {
             // Linha em branco usada no for, para cada registro é criada uma nova linha 
-            String[] linha = new String[]{null, null, null};
+            String[] linha = new String[]
+            {
+                null, null, null
+            };
             // P/ cada registro é criada uma nova linha, cada recebe linha os campos do registro
-            for (int i = 0; i < funcionarios.size(); i++) {
+            for (int i = 0; i < funcionarios.size(); i++)
+            {
                 tmFuncionario.addRow(linha);
                 tmFuncionario.setValueAt(funcionarios.get(i).getCodigo(), i, 0);
                 tmFuncionario.setValueAt(funcionarios.get(i).getNome(), i, 1);
@@ -733,38 +819,51 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Limpa a tabela de resultados
-    private void limpaTabelaFuncionario() {
-        while (tmFuncionario.getRowCount() > 0) {
+    private void limpaTabelaFuncionario()
+    {
+        while (tmFuncionario.getRowCount() > 0)
+        {
             tmFuncionario.removeRow(0);
         }
     }
 
-    DefaultTableModel tmUsuario = new DefaultTableModel(null, new String[]{"Código", "Nome", "Ativo"});
+    DefaultTableModel tmUsuario = new DefaultTableModel(null, new String[]
+    {
+        "Código", "Nome", "Ativo"
+    });
     // Lista de clientes, recebe os registros retornados da pesquisa
-    List<Usuario> usuarios;
+   
 
     // Lista a quantidade de resultado, de acordo com o nome passado no campo pesquisa
-    private void listaUsuario() throws SQLException {
-        UsuarioDAO userdao = new UsuarioDAO();
-        usuarios = userdao.BuscarPorNome("%" + txtPesquisa.getText() + "%");
+    private void listaUsuario() throws SQLException
+    {
+        List<Usuario> usuarios = new UsuarioDAO().BuscarPorNome(txtPesquisa.getText());
 
-        // Após pesquisar os contatos, executa o método p/ exibir o resultado na tabela pesquisa
+        // Após pesquisar , executa o método p/ exibir o resultado na tabela pesquisa
         mostraPesquisaUsuario(usuarios);
         usuarios.clear();
+
     }
 
     // Mostra a lista de resultado de acordo com o nome passado no campo pesquisa
-    private void mostraPesquisaUsuario(List<Usuario> usuarios) {
+    private void mostraPesquisaUsuario(List<Usuario> usuarios)
+    {
         // Limpa a tabela sempre que for solicitado uma nova pesquisa
         limpaTabelaUsuario();
 
-        if (usuarios.isEmpty()) {
+        if (usuarios.isEmpty())
+        {
             JOptionPane.showMessageDialog(rootPane, "Nenhum registro não encontrado.");
-        } else {
+        } else
+        {
             // Linha em branco usada no for, para cada registro é criada uma nova linha 
-            String[] linha = new String[]{null, null, null};
+            String[] linha = new String[]
+            {
+                null, null, null
+            };
             // P/ cada registro é criada uma nova linha, cada recebe linha os campos do registro
-            for (int i = 0; i < usuarios.size(); i++) {
+            for (int i = 0; i < usuarios.size(); i++)
+            {
                 tmUsuario.addRow(linha);
                 tmUsuario.setValueAt(usuarios.get(i).getCodigo(), i, 0);
                 tmUsuario.setValueAt(usuarios.get(i).getNome(), i, 1);
@@ -772,16 +871,63 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
             }
         }
     }
+    
+     DefaultTableModel tmExemplar = new DefaultTableModel(null, new String[]
+    {
+        "Código", "Disponibilidade", "Num_Exemplares", "Tit.Livro"
+    });
+   
+
+    // Lista a quantidade de resultado, de acordo com o nome passado no campo pesquisa
+    private void listaExemplares() throws SQLException
+    {
+         List<Exemplar> exemplares = new ExemplarDAO().BuscarPorTitulo(txtPesquisa.getText());
+
+        // Após pesquisar os contatos, executa o método p/ exibir o resultado na tabela pesquisa
+        mostraPesquisaExemplar(exemplares);
+        exemplares.clear();
+    }
+
+    // Mostra a lista de resultado de acordo com o nome passado no campo pesquisa
+    private void mostraPesquisaExemplar(List<Exemplar> exemplares)
+    {
+        // Limpa a tabela sempre que for solicitado uma nova pesquisa
+        limpaTabelaExemplar();
+
+        if (exemplares.isEmpty())
+        {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum registro encontrado.");
+        } else
+        {
+            // Linha em branco usada no for, para cada registro é criada uma nova linha 
+            String[] linha = new String[]
+            {
+                null, null, null, null
+            };
+            // P/ cada registro é criada uma nova linha, cada linha recebe os campos do registro
+            for (int i = 0; i < exemplares.size(); i++)
+            {
+                tmExemplar.addRow(linha);
+                tmExemplar.setValueAt(exemplares.get(i).getCodigo(), i, 0);
+                tmExemplar.setValueAt(exemplares.get(i).getLivro().getTitulo(), i, 1);
+                tmExemplar.setValueAt(exemplares.get(i).getNumExemplar(), i, 2);
+                tmExemplar.setValueAt(exemplares.get(i).getDisponivel(), i, 3);
+            }
+        }
+    }
 
     // Limpa a tabela de resultados
-    private void limpaTabelaUsuario() {
-        while (tmUsuario.getRowCount() > 0) {
+    private void limpaTabelaUsuario()
+    {
+        while (tmUsuario.getRowCount() > 0)
+        {
             tmUsuario.removeRow(0);
         }
     }
 
     /*<-CLIENTE----*/
-    private String pegaIdFuncionario() throws SQLException {
+    private String pegaIdFuncionario() throws SQLException
+    {
         int linhaSelecionada = jTableFuncionario.getSelectedRow();
 
         String s = jTableFuncionario.getValueAt(linhaSelecionada, 0).toString();
@@ -791,12 +937,16 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
 
     /*----EMPRÉSTIMO->*/
     // Configura campos da tabela de pesquisas de acordo com os campos dos Empréstimos
-    DefaultTableModel tmEmprestimo = new DefaultTableModel(null, new String[]{"Código", "ID_Funcionário", "ID_Usuário", "ID_Exemplar", "Observações", "Data Emprestimo", "Data Devolução"});
+    DefaultTableModel tmEmprestimo = new DefaultTableModel(null, new String[]
+    {
+        "Código", "ID_Funcionário", "ID_Usuário", "ID_Exemplar", "Observações", "Data Emprestimo", "Data Devolução"
+    });
     // Lista de empréstimos, recebe os registros retornados da pesquisa
     List<Emprestimo> emprestimos;
 
     // Lista a quantidade de resultado, de acordo com o nome passado no campo pesquisa
-    private void listaContatosEmprestimo() throws SQLException {
+    private void listaContatosEmprestimo() throws SQLException
+    {
         EmprestimoDAO d = new EmprestimoDAO();
         emprestimos = d.BuscarPorFunc(pegaIdFuncionario());
 
@@ -806,16 +956,23 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Mostra a lista de resultado de acordo com o nome passado no campo pesquisa
-    private void mostraPesquisaEmprestimo(List<Emprestimo> emprestimos) {
+    private void mostraPesquisaEmprestimo(List<Emprestimo> emprestimos)
+    {
         // Limpa a tabela sempre que for solicitado uma nova pesquisa
         limpaTabelaEmprestimo();
 
-        if (emprestimos.isEmpty()) {
-        } else {
+        if (emprestimos.isEmpty())
+        {
+        } else
+        {
             // Linha em branco usada no for, para cada registro é criada uma nova linha 
-            String[] linha = new String[]{null, null, null, null, null, null, null};
+            String[] linha = new String[]
+            {
+                null, null, null, null, null, null, null
+            };
             // P/ cada registro é criada uma nova linha, cada linha recebe os campos do registro
-            for (int i = 0; i < emprestimos.size(); i++) {
+            for (int i = 0; i < emprestimos.size(); i++)
+            {
                 tmEmprestimo.addRow(linha);
                 tmEmprestimo.setValueAt(emprestimos.get(i).getCodigo(), i, 0);
                 tmEmprestimo.setValueAt(emprestimos.get(i).getUsuario(), i, 1);
@@ -829,8 +986,10 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     }
 
     // Limpa a tabela de resultados
-    private void limpaTabelaEmprestimo() {
-        while (tmEmprestimo.getRowCount() > 0) {
+    private void limpaTabelaEmprestimo()
+    {
+        while (tmEmprestimo.getRowCount() > 0)
+        {
             tmEmprestimo.removeRow(0);
         }
     }
@@ -838,54 +997,27 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
 
  /* ----LIVRO-> */
     // Edita os campos e colunas da tabela de resultados
-    DefaultTableModel tmExemplar = new DefaultTableModel(null, new String[]{"Código", "Disponibilidade","Num_Exemplares","Tit.Livro"});
-    List<Exemplar> exemplares;
-
-    // Lista a quantidade de resultado, de acordo com o nome passado no campo pesquisa
-    private void listaExemplares() throws SQLException {
-        ExemplarDAO d = new ExemplarDAO();
-        exemplares = d.BuscarPorTitulo("%" + txtPesquisa.getText() + "%");
-
-        // Após pesquisar os contatos, executa o método p/ exibir o resultado na tabela pesquisa
-        mostraPesquisaExemplar(exemplares);
-        exemplares.clear();
-    }
-
-    // Mostra a lista de resultado de acordo com o nome passado no campo pesquisa
-    private void mostraPesquisaExemplar(List<Exemplar> exemplares) {
-        // Limpa a tabela sempre que for solicitado uma nova pesquisa
-        limpaTabelaExemplar();
-
-        if (exemplares.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Nenhum registro encontrado.");
-        } else {
-            // Linha em branco usada no for, para cada registro é criada uma nova linha 
-            String[] linha = new String[]{null, null, null, null};
-            // P/ cada registro é criada uma nova linha, cada linha recebe os campos do registro
-            for (int i = 0; i < exemplares.size(); i++) {
-                tmExemplar.addRow(linha);
-                tmExemplar.setValueAt(exemplares.get(i).getCodigo(), i, 0);
-                tmExemplar.setValueAt(exemplares.get(i).getLivro().getTitulo(), i, 1);
-                tmExemplar.setValueAt(exemplares.get(i).getNumExemplar(), i, 2);
-                tmExemplar.setValueAt(exemplares.get(i).getDisponivel(), i, 3);
-            }
-        }
-    }
+   
 
     // Limpa a tabela de resultados
-    private void limpaTabelaExemplar() {
-        while (tmExemplar.getRowCount() > 0) {
+    private void limpaTabelaExemplar()
+    {
+        while (tmExemplar.getRowCount() > 0)
+        {
             tmExemplar.removeRow(0);
         }
     }
 
-    private String pegaIdExemplar() {
+    private String pegaIdExemplar()
+    {
         int linhaSelecionada;
         String s = "0";
-        if (jTableEmprestimo.getSelectedRow() != -1) {
+        if (jTableEmprestimo.getSelectedRow() != -1)
+        {
             linhaSelecionada = jTableEmprestimo.getSelectedRow();
             s = jTableEmprestimo.getValueAt(linhaSelecionada, 2).toString();
-        } else if (jTableExemplar.getSelectedRow() != -1) {
+        } else if (jTableExemplar.getSelectedRow() != -1)
+        {
             linhaSelecionada = jTableExemplar.getSelectedRow();
             s = jTableExemplar.getValueAt(linhaSelecionada, 0).toString();
         }
@@ -893,8 +1025,10 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
         return s;
     }
 
-    private void alteraDisponibilidade(Boolean status) throws SQLException {
-        if ((jTableUsuario2.getSelectedRow() != -1) || (jTableUsuario2.getSelectedRow() != -1)) {
+    private void alteraDisponibilidade(Boolean status) throws SQLException
+    {
+        if ((jTableUsuario2.getSelectedRow() != -1) || (jTableUsuario2.getSelectedRow() != -1))
+        {
             Exemplar l = new Exemplar();
             ExemplarDAO d = new ExemplarDAO();
 
@@ -903,13 +1037,16 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
             l.setDisponivel(status);
 
             d.alteraDisponibilidade(l);
-        } else {
+        } else
+        {
             JOptionPane.showMessageDialog(rootPane, "Livro não selecionado.");
         }
     }
 
-    private void devolveExemplar() throws SQLException, ParseException {
-        if (jTableEmprestimo.getSelectedRow() != -1) {
+    private void devolveExemplar() throws SQLException, ParseException
+    {
+        if (jTableEmprestimo.getSelectedRow() != -1)
+        {
             // Altera a disponibilidade do livro
             alteraDisponibilidade(true);
 
@@ -922,20 +1059,23 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
             EmprestimoDAO d = new EmprestimoDAO();
             d.Remover(id);
 
-            if (diferencaData() > 0) {
+            if (diferencaData() > 0)
+            {
 
                 JOptionPane.showMessageDialog(rootPane, "Emprestimo devolvido após o prazo de vencimento\n"
                         + "\n\nPassou " + diferencaData() + " dias do prazo. Esta multa deve ser registrada...");
 
                 listaContatosEmprestimo();
                 listaExemplares();
-            } else {
+            } else
+            {
                 JOptionPane.showMessageDialog(rootPane, "Emprestimo devolvido com sucesso.");
                 listaContatosEmprestimo();
                 listaExemplares();
             }
 
-        } else {
+        } else
+        {
             JOptionPane.showMessageDialog(rootPane, "Emprestimo não selecionado.");
         }
     }
@@ -943,33 +1083,42 @@ public class JanelaEmprestimo extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(JanelaEmprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(JanelaEmprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(JanelaEmprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(JanelaEmprestimo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run()
+            {
                 new JanelaEmprestimo().setVisible(true);
             }
         });
