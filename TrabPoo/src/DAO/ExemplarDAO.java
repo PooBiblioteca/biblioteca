@@ -96,13 +96,17 @@ public class ExemplarDAO {
 
     public List<Exemplar> BuscarPorTitulo(String titulo) throws SQLException {
         // Prepara conexão p/ receber o comando SQL
-        String sql = "select ex.codigo as exemplarcod, id_livro,edicao, tombo, disponivel, num_exemplar, livro.codigo as livrocod,livro.titulo as titulo from exemplar ex inner join livro livro on livro.codigo = ex.id_livro AND titulo = ?";
+        String sql = "select ex.codigo as exemplarcod, id_livro,edicao, tombo, "
+                + "disponivel, num_exemplar, livro.codigo as livrocod, "
+                + "livro.titulo as titulo "
+                + "from exemplar ex "
+                + "inner join livro livro on livro.codigo = ex.id_livro AND upper(titulo) like ?";
 
         Connection con = ConectaBanco.getConexao();
         /*Criando obj. capaz de executar instruções
          SQL no banco de dados*/
         PreparedStatement stat = con.prepareStatement(sql);
-        stat.setString(1, titulo);
+        stat.setString(1, "%" + titulo.toUpperCase() + "%");
 
         // Recebe o resultado da consulta SQL
         ResultSet rs = stat.executeQuery();

@@ -102,13 +102,13 @@ public class UsuarioDAO {
  
   public List<Usuario> BuscarPorNome(String nome) throws SQLException {
         // Prepara conexão p/ receber o comando SQL
-        String sql = "SELECT * FROM usuario WHERE nome like ?";
+        String sql = "SELECT * FROM usuario WHERE upper(nome) like ?";
 
         Connection con = ConectaBanco.getConexao();
         /*Criando obj. capaz de executar instruções
          SQL no banco de dados*/
         PreparedStatement stat = con.prepareStatement(sql);
-        stat.setString(1, nome);
+        stat.setString(1, "%" + nome.toUpperCase() + "%");
 
         // Recebe o resultado da consulta SQL
         ResultSet rs = stat.executeQuery();

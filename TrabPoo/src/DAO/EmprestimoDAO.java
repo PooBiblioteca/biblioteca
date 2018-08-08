@@ -20,7 +20,7 @@ public class EmprestimoDAO {
 
     public void Salvar(Emprestimo emprestimo) throws SQLException {
 
-        String sql = "INSERT INTO emprestimo(codigo, id_usuario, id_exemplar, id_funcionario, observacao, data_emprestimo, data_devolucao) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO emprestimo(id_usuario, id_exemplar, id_funcionario, observacao, data_emprestimo, data_devolucao) VALUES(?, ?, ?, ?, ?, ?)";
 
         Connection con = ConectaBanco.getConexao();
         /*Criando obj. capaz de executar instruções
@@ -29,13 +29,13 @@ public class EmprestimoDAO {
         // Prepara conexão p/ receber o comando SQL
 
         // Seta os valores p/ o stmt, substituindo os "?"        
-        stat.setInt(1, emprestimo.getCodigo());
-        stat.setInt(2, emprestimo.getUsuario().getCodigo());
-        stat.setInt(3, emprestimo.getExemplar().getCodigo());
-        stat.setInt(4, emprestimo.getFuncionario().getCodigo());
-        stat.setString(5, emprestimo.getObservacao());
-        stat.setString(6, emprestimo.getDataretirada());
-        stat.setString(7, emprestimo.getDataDevolucao());
+//        stat.setInt(1, emprestimo.getCodigo());
+        stat.setInt(1, emprestimo.getUsuario().getCodigo());
+        stat.setInt(2, emprestimo.getExemplar().getCodigo());
+        stat.setInt(3, emprestimo.getFuncionario().getCodigo());
+        stat.setString(4, emprestimo.getObservacao());
+        stat.setString(5, emprestimo.getDataretirada());
+        stat.setString(6, emprestimo.getDataDevolucao());
 
         // O stmt executa o comando SQL no BD, e fecha a conexão
         stat.execute();

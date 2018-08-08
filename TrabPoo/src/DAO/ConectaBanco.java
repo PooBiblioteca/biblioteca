@@ -10,7 +10,7 @@ public class ConectaBanco {
     private static String url;
     private static String usuario = "root";
     private static String senha = "1234";
-    private static String banco = "teste";
+    private static String banco = "biblioteca";
 
     public static Connection getConexao() {
         try {
